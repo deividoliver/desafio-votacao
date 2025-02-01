@@ -1,8 +1,8 @@
 package br.com.dbserver.votacao.domain.associado;
 
-import br.com.dbserver.votacao.domain.generic.SystemAbstractDTO;
+import br.com.dbserver.votacao.domain.generic.GenericDTO;
 
-public class AssociadoDTO extends SystemAbstractDTO {
+public class AssociadoDTO extends GenericDTO {
 
     private String nome;
     private String email;

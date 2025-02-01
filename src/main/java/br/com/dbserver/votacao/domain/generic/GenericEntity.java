@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @DynamicUpdate
 @DynamicInsert
 @MappedSuperclass
-public abstract class SystemAbstractEntity implements Serializable {
+public abstract class GenericEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "SQ_GENERATOR")

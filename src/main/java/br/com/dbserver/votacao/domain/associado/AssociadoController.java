@@ -1,17 +1,13 @@
-package br.com.dbserver.votacao.domain.assembleia;
+package br.com.dbserver.votacao.domain.associado;
 
-import br.com.dbserver.votacao.domain.associado.AssociadoDTO;
 import br.com.dbserver.votacao.service.AssociadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/associado")
@@ -28,8 +24,7 @@ public class AssociadoController {
 
     @ResponseBody
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AssociadoDTO> save(@RequestBody AssociadoDTO dto) {
-        //throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Not Found");
+    public ResponseEntity<AssociadoDTO> create(@RequestBody AssociadoDTO dto) {
         dto = this.associadoService.save(dto);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }

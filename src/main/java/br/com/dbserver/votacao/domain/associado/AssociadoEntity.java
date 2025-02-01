@@ -1,6 +1,6 @@
 package br.com.dbserver.votacao.domain.associado;
 
-import br.com.dbserver.votacao.domain.generic.SystemAbstractEntity;
+import br.com.dbserver.votacao.domain.generic.GenericEntity;
 import jakarta.persistence.*;
 
 
@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 @Table(name = "associado")
 @AttributeOverride(name = "id", column = @Column(name = "id_associado"))
 @SequenceGenerator(name = "SQ_GENERATOR", sequenceName = "sequence_associado", allocationSize = 1)
-public class AssociadoEntity extends SystemAbstractEntity {
+public class AssociadoEntity extends GenericEntity {
 
     @Column(name = "nome")
     private String nome;

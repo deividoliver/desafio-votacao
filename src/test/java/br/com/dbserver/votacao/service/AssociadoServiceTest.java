@@ -13,8 +13,9 @@ public class AssociadoServiceTest {
     @Autowired
     private AssociadoService associadoService;
 
+    //Teste focado em criar um cadastro do associado.
     @Test
-    public void testCriarAssociado(){
+    public void testCriarAssociado() {
         AssociadoDTO dto = new AssociadoDTO();
         String variacao = String.valueOf(Math.random()).substring(2);
         dto.setNome("Fulano " + variacao);

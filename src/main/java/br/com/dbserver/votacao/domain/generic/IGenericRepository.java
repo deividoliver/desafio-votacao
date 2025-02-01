@@ -7,7 +7,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 import java.util.List;
 
 @NoRepositoryBean
-public interface ISystemRepository<E extends SystemAbstractEntity> extends JpaRepository<E, Long>, JpaSpecificationExecutor<E> {
+public interface IGenericRepository<E extends GenericEntity> extends JpaRepository<E, Long>, JpaSpecificationExecutor<E> {
 
     List<E> findAllByAtivo(boolean ativo);
 }

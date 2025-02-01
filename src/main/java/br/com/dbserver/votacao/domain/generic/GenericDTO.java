@@ -2,7 +2,7 @@ package br.com.dbserver.votacao.domain.generic;
 
 import java.io.Serializable;
 
-public abstract class SystemAbstractDTO implements Serializable {
+public abstract class GenericDTO implements Serializable {
 
     protected Long id;
 

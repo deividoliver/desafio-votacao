@@ -1,38 +1,38 @@
 package br.com.dbserver.votacao.converter;
 
 import br.com.dbserver.votacao.Util;
-import br.com.dbserver.votacao.domain.associado.AssociadoDTO;
-import br.com.dbserver.votacao.domain.associado.AssociadoEntity;
 import br.com.dbserver.votacao.domain.generic.GenericConverter;
+import br.com.dbserver.votacao.domain.pauta.PautaDTO;
+import br.com.dbserver.votacao.domain.pauta.PautaEntity;
 import br.com.dbserver.votacao.exception.NaoEncontradoException;
-import br.com.dbserver.votacao.repository.IAssociadoRepository;
+import br.com.dbserver.votacao.repository.IPautaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Component
-public class AssociadoConverter extends GenericConverter<AssociadoEntity, AssociadoDTO, IAssociadoRepository> {
+public class PautaConverter extends GenericConverter<PautaEntity, PautaDTO, IPautaRepository> {
 
     @Autowired
-    private IAssociadoRepository repository;
+    private IPautaRepository repository;
 
-    public AssociadoEntity toEntity(AssociadoDTO dto) {
+    public PautaEntity toEntity(PautaDTO dto) {
         try {
             if (dto == null) return null;
 
-            AssociadoEntity entity = new AssociadoEntity();
+            PautaEntity entity = new PautaEntity();
 
             if (!Util.isNew(dto)) {
-                Optional<AssociadoEntity> entityOptional = repository.findById(dto.getId());
+                Optional<PautaEntity> entityOptional = repository.findById(dto.getId());
                 if (entityOptional.isPresent()) {
                     entity = entityOptional.get();
                 }
             }
 
             entity = this.entity(entity, dto);
-            entity.setNome(dto.getNome());
-            entity.setEmail(dto.getEmail());
+            entity.setTitulo(dto.getTitulo());
+            entity.setDescricao(dto.getDescricao());
 
             return entity;
         } catch (Exception e) {
@@ -40,12 +40,12 @@ public class AssociadoConverter extends GenericConverter<AssociadoEntity, Associ
         }
     }
 
-    public AssociadoDTO toDto(AssociadoEntity entity) {
+    public PautaDTO toDto(PautaEntity entity) {
         try {
-            AssociadoDTO dto = new AssociadoDTO();
+            PautaDTO dto = new PautaDTO();
             this.dto(entity, dto);
-            dto.setNome(entity.getNome());
-            dto.setEmail(entity.getEmail());
+            dto.setTitulo(entity.getTitulo());
+            dto.setDescricao(entity.getDescricao());
             return dto;
         } catch (Exception e) {
             throw new NaoEncontradoException();
@@ -53,3 +53,4 @@ public class AssociadoConverter extends GenericConverter<AssociadoEntity, Associ
     }
 
 }
+

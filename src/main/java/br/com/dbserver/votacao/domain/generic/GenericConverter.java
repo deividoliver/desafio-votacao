@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-public class SystemConverter <
-        E extends SystemAbstractEntity,
-        D extends SystemAbstractDTO,
-        R extends ISystemRepository> {
+public class GenericConverter<
+        E extends GenericEntity,
+        D extends GenericDTO,
+        R extends IGenericRepository> {
 
     @Autowired
     private R repository;

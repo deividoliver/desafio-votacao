@@ -1,7 +1,7 @@
 package br.com.dbserver.votacao;
 
-import br.com.dbserver.votacao.domain.generic.SystemAbstractDTO;
-import br.com.dbserver.votacao.domain.generic.SystemAbstractEntity;
+import br.com.dbserver.votacao.domain.generic.GenericDTO;
+import br.com.dbserver.votacao.domain.generic.GenericEntity;
 
 public class Util {
 
@@ -13,11 +13,11 @@ public class Util {
         return !isNull(o);
     }
 
-    public static boolean isNew(SystemAbstractEntity o) {
+    public static boolean isNew(GenericEntity o) {
         if (isNull(o)) return true;
         return o.getId() == null;
     }
-    public static boolean isNew(SystemAbstractDTO o) {
+    public static boolean isNew(GenericDTO o) {
         if (isNull(o)) return true;
         return o.getId() == null;
     }
