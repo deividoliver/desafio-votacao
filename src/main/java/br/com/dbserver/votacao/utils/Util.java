@@ -1,4 +1,4 @@
-package br.com.dbserver.votacao;
+package br.com.dbserver.votacao.utils;
 
 import br.com.dbserver.votacao.domain.generic.GenericDTO;
 import br.com.dbserver.votacao.domain.generic.GenericEntity;

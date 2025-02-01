@@ -1,31 +1,29 @@
 package br.com.dbserver.votacao.domain.voto;
 
-import br.com.dbserver.votacao.domain.associado.AssociadoDTO;
 import br.com.dbserver.votacao.domain.generic.GenericDTO;
-import br.com.dbserver.votacao.domain.pauta.PautaDTO;
 
 public class VotoDTO extends GenericDTO {
 
-    private PautaDTO pautaDTO;
+    private Long idPauta;
 
-    private AssociadoDTO associadoDTO;
+    private Long idAssociado;
 
     private EnTipoVoto tipoVoto;
 
-    public PautaDTO getPautaDTO() {
-        return pautaDTO;
+    public Long getIdPauta() {
+        return idPauta;
     }
 
-    public void setPautaDTO(PautaDTO pautaDTO) {
-        this.pautaDTO = pautaDTO;
+    public void setIdPauta(Long idPauta) {
+        this.idPauta = idPauta;
     }
 
-    public AssociadoDTO getAssociadoDTO() {
-        return associadoDTO;
+    public Long getIdAssociado() {
+        return idAssociado;
     }
 
-    public void setAssociadoDTO(AssociadoDTO associadoDTO) {
-        this.associadoDTO = associadoDTO;
+    public void setIdAssociado(Long idAssociado) {
+        this.idAssociado = idAssociado;
     }
 
     public EnTipoVoto getTipoVoto() {

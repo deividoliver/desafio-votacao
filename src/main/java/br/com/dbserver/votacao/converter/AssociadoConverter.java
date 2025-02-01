@@ -1,11 +1,11 @@
 package br.com.dbserver.votacao.converter;
 
-import br.com.dbserver.votacao.Util;
 import br.com.dbserver.votacao.domain.associado.AssociadoDTO;
 import br.com.dbserver.votacao.domain.associado.AssociadoEntity;
 import br.com.dbserver.votacao.domain.generic.GenericConverter;
-import br.com.dbserver.votacao.exception.NaoEncontradoException;
+import br.com.dbserver.votacao.exception.VotacaoException;
 import br.com.dbserver.votacao.repository.IAssociadoRepository;
+import br.com.dbserver.votacao.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,25 +30,25 @@ public class AssociadoConverter extends GenericConverter<AssociadoEntity, Associ
                 }
             }
 
-            entity = this.entity(entity, dto);
+            entity = entity(entity, dto);
             entity.setNome(dto.getNome());
             entity.setEmail(dto.getEmail());
 
             return entity;
         } catch (Exception e) {
-            throw new NaoEncontradoException();
+            throw new VotacaoException(e.getMessage());
         }
     }
 
     public AssociadoDTO toDto(AssociadoEntity entity) {
         try {
             AssociadoDTO dto = new AssociadoDTO();
-            this.dto(entity, dto);
+            dto(entity, dto);
             dto.setNome(entity.getNome());
             dto.setEmail(entity.getEmail());
             return dto;
         } catch (Exception e) {
-            throw new NaoEncontradoException();
+            throw new VotacaoException(e.getMessage());
         }
     }
 

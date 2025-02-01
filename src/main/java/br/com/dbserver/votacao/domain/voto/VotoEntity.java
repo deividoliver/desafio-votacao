@@ -20,7 +20,7 @@ public class VotoEntity extends GenericEntity {
     private AssociadoEntity associadoEntity;  // Como criamos a entidade de associado podemos relacionar na tabela
 
     @Enumerated(EnumType.STRING)
-    @Column(name="tipo_voto",nullable = false)
+    @Column(name = "tipo_voto", nullable = false)
     private EnTipoVoto tipoVoto;
 
     public PautaEntity getPautaEntity() {

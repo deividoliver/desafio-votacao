@@ -16,12 +16,12 @@ public class AssociadoServiceTest {
     //Teste focado em criar um cadastro do associado.
     @Test
     public void testCriarAssociado() {
-        AssociadoDTO dto = new AssociadoDTO();
+        AssociadoDTO associadoDTO = new AssociadoDTO();
         String variacao = String.valueOf(Math.random()).substring(2);
-        dto.setNome("Fulano " + variacao);
-        dto.setEmail(String.format("%s@email.com", variacao));
-        dto = associadoService.save(dto);
-        assertNotNull(dto.getId());
+        associadoDTO.setNome("Fulano " + variacao);
+        associadoDTO.setEmail(String.format("%s@email.com", variacao));
+        associadoDTO = associadoService.save(associadoDTO);
+        assertNotNull(associadoDTO.getId());
 
     }
 }

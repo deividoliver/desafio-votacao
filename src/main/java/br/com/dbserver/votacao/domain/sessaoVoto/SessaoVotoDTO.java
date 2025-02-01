@@ -1,39 +1,44 @@
 package br.com.dbserver.votacao.domain.sessaoVoto;
 
 import br.com.dbserver.votacao.domain.generic.GenericDTO;
-import br.com.dbserver.votacao.domain.pauta.PautaDTO;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class SessaoVotoDTO extends GenericDTO {
 
-    private LocalDateTime dataAbertura = LocalDateTime.now();
+    private Long dataAbertura = LocalDateTime.now().atZone(ZoneId.systemDefault()).toEpochSecond();
 
-    private LocalDateTime dataFechamento;
+    private Long dataFechamento;
 
-    private PautaDTO pautaDTO;
+    private Long idPauta;
 
-    public LocalDateTime getDataAbertura() {
+    public Long getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(LocalDateTime dataAbertura) {
+    public void setDataAbertura(Long dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 
-    public LocalDateTime getDataFechamento() {
+    public Long getDataFechamento() {
         return dataFechamento;
     }
 
-    public void setDataFechamento(LocalDateTime dataFechamento) {
+    public void setDataFechamento(Long dataFechamento) {
         this.dataFechamento = dataFechamento;
     }
 
-    public PautaDTO getPautaDTO() {
-        return pautaDTO;
+    public Long getIdPauta() {
+        return idPauta;
     }
 
-    public void setPautaDTO(PautaDTO pautaDTO) {
-        this.pautaDTO = pautaDTO;
+    public void setIdPauta(Long idPauta) {
+        this.idPauta = idPauta;
+    }
+
+    public boolean isSessaoAberta() {
+        return LocalDateTime.now().isBefore(LocalDateTime.ofInstant(Instant.ofEpochSecond(dataFechamento), ZoneId.systemDefault()));
     }
 }

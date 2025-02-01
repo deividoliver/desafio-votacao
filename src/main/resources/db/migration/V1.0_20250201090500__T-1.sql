@@ -56,4 +56,5 @@ CREATE TABLE voto (
 
 CREATE INDEX idx_voto_tipo_voto ON voto (tipo_voto);
 CREATE INDEX idx_sessao_voto_data_fechamento ON sessao_voto (data_fechamento);
+CREATE INDEX idx_sessao_voto_id_pauta ON sessao_voto (id_pauta);
 

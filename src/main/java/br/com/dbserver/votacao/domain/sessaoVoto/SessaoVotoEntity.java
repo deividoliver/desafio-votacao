@@ -7,9 +7,9 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "sessao")
-@AttributeOverride(name = "id", column = @Column(name = "id_sessao"))
-@SequenceGenerator(name = "SQ_GENERATOR", sequenceName = "sequence_sessao", allocationSize = 1)
+@Table(name = "sessao_voto")
+@AttributeOverride(name = "id", column = @Column(name = "id_sessao_voto"))
+@SequenceGenerator(name = "SQ_GENERATOR", sequenceName = "sequence_sessao_voto", allocationSize = 1)
 public class SessaoVotoEntity extends GenericEntity {
 
     @Column(name = "data_abertura", nullable = false, updatable = false)
@@ -20,7 +20,7 @@ public class SessaoVotoEntity extends GenericEntity {
 
     @OneToOne
     @JoinColumn(name = "id_pauta", nullable = false, unique = true)
-    private PautaEntity pautaEntity;
+    private PautaEntity pauta;
 
     public LocalDateTime getDataFechamento() {
         return dataFechamento;
@@ -30,12 +30,12 @@ public class SessaoVotoEntity extends GenericEntity {
         this.dataFechamento = dataFechamento;
     }
 
-    public PautaEntity getPautaEntity() {
-        return pautaEntity;
+    public PautaEntity getPauta() {
+        return pauta;
     }
 
-    public void setPautaEntity(PautaEntity pautaEntity) {
-        this.pautaEntity = pautaEntity;
+    public void setPauta(PautaEntity pauta) {
+        this.pauta = pauta;
     }
 
     public LocalDateTime getDataAbertura() {

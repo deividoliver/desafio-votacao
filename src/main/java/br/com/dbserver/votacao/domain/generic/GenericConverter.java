@@ -1,6 +1,6 @@
 package br.com.dbserver.votacao.domain.generic;
 
-import br.com.dbserver.votacao.Util;
+import br.com.dbserver.votacao.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -17,10 +17,10 @@ public class GenericConverter<
     public D dto(E entity, D dto) {
         dto.setId(entity.getId());
         dto.setAtivo(entity.isAtivo());
-        if(Util.isNotNull(entity.getDataAlteracao())){
+        if (Util.isNotNull(entity.getDataAlteracao())) {
             dto.setDataAlteracao(entity.getDataAlteracao().atZone(ZoneId.systemDefault()).toEpochSecond());
         }
-        if(Util.isNotNull(entity.getDataCadastro())){
+        if (Util.isNotNull(entity.getDataCadastro())) {
             dto.setDataCadastro(entity.getDataCadastro().atZone(ZoneId.systemDefault()).toEpochSecond());
         }
 

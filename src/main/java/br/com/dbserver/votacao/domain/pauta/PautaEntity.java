@@ -23,9 +23,8 @@ public class PautaEntity extends GenericEntity {
     @JoinColumn(name = "id_pauta")
     private List<VotoEntity> votos = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_pauta")
-    private SessaoVotoEntity sessao;
+    @OneToOne(mappedBy = "pauta", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private SessaoVotoEntity sessaoVoto;
 
     public String getTitulo() {
         return titulo;
@@ -51,11 +50,11 @@ public class PautaEntity extends GenericEntity {
         this.votos = votos;
     }
 
-    public SessaoVotoEntity getSessao() {
-        return sessao;
+    public SessaoVotoEntity getSessaoVoto() {
+        return sessaoVoto;
     }
 
-    public void setSessao(SessaoVotoEntity sessao) {
-        this.sessao = sessao;
+    public void setSessaoVoto(SessaoVotoEntity sessaoVoto) {
+        this.sessaoVoto = sessaoVoto;
     }
 }
